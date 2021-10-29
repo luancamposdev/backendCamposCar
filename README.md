@@ -25,7 +25,7 @@ Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado
 - [JsonWebToken](https://npmjs.com/package/jsonwebtoken)
 - [BCrypt](https://npmjs.com/package/bcrypt)
 
-## Como instalar o Postgres no docker compose
+## 💥 Como instalar
 
 - **crie o arquivo** docker-compose.yaml **No su diretório de preferencia e cole o código abaixo**
 
