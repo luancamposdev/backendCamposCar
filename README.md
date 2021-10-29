@@ -1,7 +1,7 @@
 <p align="center">🎉
   <a href="#-sobre"> Sobre </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-conceitos-ensinados">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-material-de-apoio">Techs usadas e features criadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-material-de-apoio">Material de apoio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#-como-baixar">Como baixar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#️-funcionalidades">Funcionalidades</a>
 </p>
@@ -10,7 +10,7 @@
 
 Esse projeto foi desenvolvido para a prova de teste.
 
-## ✍🏻 Techs usadas e features criadas
+## ✍🏻 Tecnologias
 
 Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado relacionamento `Many to Many`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
 
