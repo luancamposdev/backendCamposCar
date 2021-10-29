@@ -1,0 +1,16 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 15432,
+  "username": "postgres",
+  "password": "lp745212",
+  "database": "camposcar",
+  "synchronize": false,
+  "logging": false,
+  "entities": ["./src/models/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "entitiesDir": "./src/models",
+    "migrationsDir": "./src/database/migrations"
+  }
+}
