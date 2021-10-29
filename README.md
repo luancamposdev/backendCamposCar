@@ -8,11 +8,11 @@
 
 # 🔖 Sobre
 
-Esse projeto foi desenvolvido com o objetivo de ensinar como criar controle de acesso de usuário, utilizando NodeJS.
+Esse projeto foi desenvolvido para a prova de teste.
 
 ## ✍🏻 Conceitos ensinados
 
-Durante o desenvolvimento, foi ensinado sobre relacionamento `Many to Many`, utilizando `TypeORM`, como criar `Roles e Permissions` e vincular ao user e como criar um `middleware` de validação das rotas, de acordo com as permissões.
+Durante o desenvolvimento, foi utilizados relacionamento `Many to Many`, utilizando `TypeORM`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
 
 ## 🗂 Material de apoio
 
@@ -26,16 +26,16 @@ Durante o desenvolvimento, foi ensinado sobre relacionamento `Many to Many`, uti
 ```bash
 
     // Clonar repositório
-    $ git clone https://github.com/danileao/permissions_users
+    $ git clone https://github.com/luancampos/backendCamposCar
 
     // Acessar diretório
-    $ cd permissions_users
+    $ cd backendCamposCar
 
     // Instalar dependências
     $ yarn
 
     // Iniciar projeto
-    $ yarn start
+    $ yarn dev
 ```
 
 ## ☑️ Funcionalidades
@@ -44,10 +44,10 @@ Durante o desenvolvimento, foi ensinado sobre relacionamento `Many to Many`, uti
 [ ] Autenticacao de Users<br/>
 [ ] Cadastro de Permissões<br/>
 [ ] Cadastro de Roles<br/>
-[ ] Cadastro de Produtos<br/>
+[ ] Cadastro de Carros<br/>
 [ ] Relacionamento User_Roles<br/>
 [ ] Relacionamento Permission_Roles<br/>
 
 ---
 
-<h3 align="center">Desenvolvido por  💜  Daniele Leão Evangelista </h3>
+<h3 align="center">Desenvolvido por  💜  Luan Campos </h3>
