@@ -50,4 +50,4 @@ Durante o desenvolvimento, foi utilizados relacionamento `Many to Many`, utiliza
 
 ---
 
-<h3 align="center">Desenvolvido por  💜  Luan Campos </h3>
+<h3 align="center">Desenvolvido por  Luan Campos </h3>
