@@ -9,6 +9,7 @@ import CarController from './controllers/CarController'
 
 import { is } from './middlewares/permission'
 import { multerConfig } from './config/multerConfig'
+import photosCarController from './controllers/photosCarController'
 
 const router = Router()
 
@@ -25,6 +26,17 @@ router.post(
   multer(multerConfig).single('avatar'),
   CarController.create
 )
+router.put(
+  '/cars/:id',
+  multer(multerConfig).single('avatar'),
+  CarController.update
+)
+router.get('/cars/:id', CarController.show)
+router.get('/cars', CarController.index)
+router.delete('/cars/:id', CarController.delete)
+
+// Photos Car Route
+router.get('/cars/photos/:filename', photosCarController.show)
 
 // Session Route
 router.post('/sessions', SessionController.create)

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { getCustomRepository } from 'typeorm'
+import { getCustomRepository, useContainer } from 'typeorm'
 
 import CarRepository from '../repositories/CarRepository'
 
@@ -7,21 +7,76 @@ class CarController {
   async create(request: Request, response: Response) {
     const carRepository = getCustomRepository(CarRepository)
 
-    return response.json({ data: request.body, avatar: request.file })
+    const { name, marca, modelo, price } = request.body
+    const filename = request.file?.filename
+    const avatar = `http://localhost:3333/api/cars/photos/${filename}`
 
-    // const car = carRepository.create({
-    //   name,
-    //   marca,
-    //   modelo,
-    //   price,
-    //   avatar,
-    // })
+    const car = carRepository.create({
+      name,
+      marca,
+      modelo,
+      price,
+      avatar,
+    })
 
-    // await carRepository.save(car)
+    try {
+      await carRepository.save(car)
+    } catch (err) {
+      console.warn('Error saving to Database')
+    }
 
-    // delete user.password;
+    return response.json(car)
+  }
 
-    return response.status(201).json({ message: 'algo' })
+  async show(request: Request, response: Response) {
+    const carRepository = getCustomRepository(CarRepository)
+    const { id } = request.params
+
+    const car = await carRepository.findOne({ where: { id } })
+
+    if (!car) return response.status(401).json({ error: 'Car is not exist!' })
+
+    return response.json(car)
+  }
+
+  async index(request: Request, response: Response) {
+    const carRepository = getCustomRepository(CarRepository)
+
+    const cars = await carRepository.find()
+
+    return response.json(cars)
+  }
+
+  async delete(request: Request, response: Response) {
+    const carRepository = getCustomRepository(CarRepository)
+    const { id } = request.params
+
+    await carRepository.delete(id)
+
+    return response.json({ message: 'Deleted car.' })
+  }
+
+  async update(request: Request, response: Response) {
+    const carRepository = getCustomRepository(CarRepository)
+    const { id } = request.params
+    const filename = request.file?.filename
+    const avatar = `http://localhost:3333/api/cars/photos/${filename}`
+    const { name, marca, modelo, price } = request.body
+
+    const carExist = await carRepository.findOne(id)
+
+    if (!carExist)
+      return response.status(400).json({ message: 'Car note found!' })
+
+    const car = await carRepository.update(id, {
+      name,
+      marca,
+      modelo,
+      price,
+      avatar,
+    })
+
+    if (car.affected) return response.json({ massage: 'Updated car.' })
   }
 }
 
