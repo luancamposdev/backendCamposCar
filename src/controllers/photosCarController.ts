@@ -15,6 +15,9 @@ class CarController {
         'photos-cars'
       ),
     }
+
+    if (!filename)
+      return response.status(400).json({ error: 'Image is not exist!' })
     response.sendFile(filename, options, function (err) {
       if (err) {
         next(err)

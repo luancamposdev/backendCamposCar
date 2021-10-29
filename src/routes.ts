@@ -23,28 +23,34 @@ router.put('/users/:id', UserController.update)
 // Car Route
 router.post(
   '/cars',
+  is(['ROLE_ADMIN']),
   multer(multerConfig).single('avatar'),
   CarController.create
 )
 router.put(
   '/cars/:id',
+  is(['ROLE_ADMIN']),
   multer(multerConfig).single('avatar'),
   CarController.update
 )
-router.get('/cars/:id', CarController.show)
-router.get('/cars', CarController.index)
-router.delete('/cars/:id', CarController.delete)
+router.get('/cars/:id', is(['ROLE_ADMIN', 'ROLE_USER']), CarController.show)
+router.get('/cars', is(['ROLE_ADMIN', 'ROLE_USER']), CarController.index)
+router.delete('/cars/:id', is(['ROLE_ADMIN']), CarController.delete)
 
 // Photos Car Route
-router.get('/cars/photos/:filename', photosCarController.show)
+router.get(
+  '/cars/photos/:filename',
+  is(['ROLE_ADMIN', 'ROLE_USER']),
+  photosCarController.show
+)
 
 // Session Route
 router.post('/sessions', SessionController.create)
 
 // Permission Route
-router.post('/permissions', PermissionController.create)
+router.post('/permissions', is(['ROLE_ADMIN']), PermissionController.create)
 
 // Role Route
-router.post('/roles', RoleController.create)
+router.post('/roles', is(['ROLE_ADMIN']), RoleController.create)
 
 export { router }
