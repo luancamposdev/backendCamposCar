@@ -12,14 +12,66 @@ Esse projeto foi desenvolvido para a prova de teste.
 
 ## ✍🏻 Conceitos ensinados
 
-Durante o desenvolvimento, foi utilizados relacionamento `Many to Many`, utilizando `TypeORM`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
+Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado relacionamento `Many to Many`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
 
 ## 🗂 Material de apoio
 
-- [TypeORM](typeorm.io/)
+- [TypeORM](https://typeorm.io)
+- [Postgres](https://www.postgresql.org/)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 - [JWT](https://jwt.io)
-- [BCrypt](https://www.npmjs.com/package/bcrypt)
-- [JsonWebToken](www.npmjs.com/package/jsonwebtoken)
+- [JsonWebToken](https://npmjs.com/package/jsonwebtoken)
+- [BCrypt](https://npmjs.com/package/bcrypt)
+
+## Como instalar o Postgres no docker compose
+
+- **crie o arquivo** docker-compose.yaml **No su diretório de preferencia e cole o código abaixo**
+
+```yaml
+  version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "pgadmin"
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "15432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+
+    ports:
+      - "16543:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
+    pgadmin:
+```
+
+**Após criar o arquivo rode o comando no terminal** ( sudo docker-compose up -d )
 
 ## 👍🏻 Como baixar
 
@@ -34,20 +86,24 @@ Durante o desenvolvimento, foi utilizados relacionamento `Many to Many`, utiliza
     // Instalar dependências
     $ yarn
 
+    // Rodar as migrations
+    $ yarn typeorm migration:run
+
     // Iniciar projeto
     $ yarn dev
 ```
 
 ## ☑️ Funcionalidades
 
-[ ] Cadastro de Users <br/>
-[ ] Autenticacao de Users<br/>
-[ ] Cadastro de Permissões<br/>
-[ ] Cadastro de Roles<br/>
-[ ] Cadastro de Carros<br/>
-[ ] Relacionamento User_Roles<br/>
-[ ] Relacionamento Permission_Roles<br/>
+- [x] CRUD de Users <br/>
+- [x] Autenticacao de Users<br/>
+- [x] Cadastro de Permissões<br/>
+- [x] Cadastro de Roles<br/>
+- [x] Relacionamento User_Roles<br/>
+- [x] Relacionamento Permission_Roles<br/>
+- [x] CRUD de Carros<br/>
+- [x] Upload de imagens<br />
 
 ---
 
-<h3 align="center">Desenvolvido por  Luan Campos </h3>
+<h2 align="center">Desenvolvido por  Luan Campos </h2>
