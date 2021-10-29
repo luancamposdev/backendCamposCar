@@ -71,6 +71,27 @@ volumes:
     pgadmin:
 ```
 
+- **crie na raiz do projeto o arquivo** ormconfig.json **E cole o código abaixo alterando os campos username, password e database de acordo com seu postgres**
+
+```json
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 15432,
+  "username": "postgres",
+  "password": "yourpassword",
+  "database": "yourdatabase",
+  "synchronize": false,
+  "logging": false,
+  "entities": ["./src/models/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "entitiesDir": "./src/models",
+    "migrationsDir": "./src/database/migrations"
+  }
+}
+```
+
 **Após criar o arquivo rode o comando no terminal** ( sudo docker-compose up -d )
 
 ## 👍🏻 Como baixar
