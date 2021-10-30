@@ -48,9 +48,9 @@ router.get(
 router.post('/sessions', SessionController.create)
 
 // Permission Route
-router.post('/permissions', is(['ROLE_ADMIN']), PermissionController.create)
+router.post('/permissions', PermissionController.create)
 
 // Role Route
-router.post('/roles', is(['ROLE_ADMIN']), RoleController.create)
+router.post('/roles', RoleController.create)
 
 export { router }

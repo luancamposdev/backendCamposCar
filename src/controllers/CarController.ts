@@ -32,7 +32,7 @@ class CarController {
     const carRepository = getCustomRepository(CarRepository)
     const { id } = request.params
 
-    const car = await carRepository.findOne({ id })
+    const car = await carRepository.findOne({ where: { id } })
 
     if (!car) return response.status(401).json({ error: 'Car is not exist!' })
 
