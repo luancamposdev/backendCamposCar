@@ -41,8 +41,6 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
   cp ormconfig.example.json ormconfig.json
 ```
 
-**Após criar o arquivo rode o comando no terminal** ( sudo docker-compose up -d )
-
 ## 👍🏻 Como baixar
 
 ```bash
@@ -61,6 +59,43 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
 
     // Iniciar projeto
     $ yarn dev
+```
+
+- **Exemplo para criar os roles, permissions e os usuários com seus devidos roles**<br />
+  // Permission
+  ```json
+    {
+	    "name": "view_car",
+	    "description": "view Cars in the Catalog"
+    }
+  ```
+  // Roles
+  ```json
+    {
+      "name": "ROLE_USER",
+      "description": "USER",
+      "permissions": [
+        "e279e447-9aa8-479f-9148-875cab3b94f6"
+      ]
+    }
+  ```
+  
+  // User
+  ```json
+    {
+      "name": "Pedro Reis",
+      "username": "pedro",
+      "email": "pedroreis@gmail.com",
+      "password": "123456",
+      "roles": [
+        "f5c540a6-7778-4e5f-ac7f-9837d4f4a614"
+      ]
+    }
+  ```
+  
+
+```shell
+  cp ormconfig.example.json ormconfig.json
 ```
 
 ## ☑️ Funcionalidades
