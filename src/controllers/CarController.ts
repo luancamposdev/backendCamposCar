@@ -7,14 +7,14 @@ class CarController {
   async create(request: Request, response: Response) {
     const carRepository = getCustomRepository(CarRepository)
 
-    const { name, marca, modelo, price } = request.body
+    const { name, brand, model, price } = request.body
     const filename = request.file?.filename
     const avatar = `http://localhost:3333/api/cars/photos/${filename}`
 
     const car = carRepository.create({
       name,
-      marca,
-      modelo,
+      brand,
+      model,
       price,
       avatar,
     })
@@ -32,7 +32,7 @@ class CarController {
     const carRepository = getCustomRepository(CarRepository)
     const { id } = request.params
 
-    const car = await carRepository.findOne({ where: { id } })
+    const car = await carRepository.findOne({ id })
 
     if (!car) return response.status(401).json({ error: 'Car is not exist!' })
 
@@ -61,7 +61,7 @@ class CarController {
     const { id } = request.params
     const filename = request.file?.filename
     const avatar = `http://localhost:3333/api/cars/photos/${filename}`
-    const { name, marca, modelo, price } = request.body
+    const { name, brand, model, price } = request.body
 
     const carExist = await carRepository.findOne(id)
 
@@ -70,8 +70,8 @@ class CarController {
 
     const car = await carRepository.update(id, {
       name,
-      marca,
-      modelo,
+      brand,
+      model,
       price,
       avatar,
     })

@@ -14,10 +14,10 @@ class Car {
   name: string
 
   @Column()
-  marca: string
+  brand: string
 
   @Column()
-  modelo: string
+  model: string
 
   @Column()
   price: number

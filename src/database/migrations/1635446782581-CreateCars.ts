@@ -22,13 +22,13 @@ export class CreateUsedCars1635376190960 implements MigrationInterface {
             length: '255',
           },
           {
-            name: 'marca',
+            name: 'brand',
             type: 'varchar',
             isNullable: false,
             length: '15',
           },
           {
-            name: 'modelo',
+            name: 'model',
             type: 'varchar',
             isNullable: false,
             length: '255',
