@@ -13,7 +13,7 @@ Esse projeto foi desenvolvido para a prova de teste.
 
 ## ✍🏻 Tecnologias
 
-Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado relacionamento `Many to Many`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
+Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e Postgres, foi criado relacionamento `Many to Many`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
 
 ## 🗂 Material de apoio
 
