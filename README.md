@@ -61,7 +61,7 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
     $ yarn dev
 ```
 
-- **Exemplo para criar os roles, permissions e os usuários com seus devidos roles**
+- **Exemplo para criar os roles, permissions e os usuários com seus devidos roles**<br />
   // Permission
   ```json
     {
