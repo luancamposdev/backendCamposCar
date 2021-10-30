@@ -9,7 +9,7 @@ class UserController {
     const userRepository = getCustomRepository(UserRepository)
     const roleRepository = getCustomRepository(RoleRepository)
 
-    const { name, username, email, password, avatar, roles } = request.body
+    const { name, username, email, password, roles } = request.body
 
     const existUser = await userRepository.findOne({ username, email })
 
@@ -26,7 +26,6 @@ class UserController {
       username,
       email,
       password: passwordHashed,
-      avatar,
       roles: existsRoles,
     })
 
