@@ -20,15 +20,16 @@ Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado
 - [NodeJs](https://nodejs.org/en/)
 - [TypeORM](https://typeorm.io)
 - [Postgres](https://www.postgresql.org/)
-- [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
 - [JWT](https://jwt.io)
 - [JsonWebToken](https://npmjs.com/package/jsonwebtoken)
 - [BCrypt](https://npmjs.com/package/bcrypt)
 
 ## 💥 Como instalar
 
-- **rode o comando abaixo para iniciar o postgres e pgadmin**
+- [Instalando o Docker](https://docs.docker.com/get-docker/)
+- [Instalando o Docker Compose](https://docs.docker.com/compose/install/)
+
+- **rode o comando abaixo para iniciar o postgres e pgadmin com o compose**
 
 ```shell
   sudo docker-compose.yaml up -d
