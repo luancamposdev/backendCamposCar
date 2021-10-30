@@ -28,49 +28,10 @@ Durante o desenvolvimento, foi utilizando o ORM `TypeORM` e Postgres, foi criado
 
 ## 💥 Como instalar
 
-- **crie o arquivo** docker-compose.yaml **No su diretório de preferencia e cole o código abaixo**
+- **rode o comando abaixo para iniciar o postgres e pgadmin**
 
-```yaml
-  version: '3.5'
-
-services:
-  postgres:
-    container_name: postgres_container
-    image: postgres
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "pgadmin"
-      PGDATA: /data/postgres
-    volumes:
-       - postgres:/data/postgres
-    ports:
-      - "15432:5432"
-    networks:
-      - postgres
-    restart: unless-stopped
-
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "postgres@email.com"
-      PGADMIN_DEFAULT_PASSWORD: "pgadmin"
-    volumes:
-       - pgadmin:/var/lib/pgadmin
-
-    ports:
-      - "16543:80"
-    networks:
-      - postgres
-    restart: unless-stopped
-
-networks:
-  postgres:
-    driver: bridge
-
-volumes:
-    postgres:
-    pgadmin:
+```shell
+  sudo docker-compose.yaml up -d
 ```
 
 - **Rode o comando abaixo e altere as suas credenciais no** ormconfig.json
