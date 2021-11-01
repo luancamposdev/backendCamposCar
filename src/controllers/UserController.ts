@@ -40,7 +40,10 @@ class UserController {
     const userRepository = getCustomRepository(UserRepository)
     const { username } = request.params
 
-    const user = await userRepository.findOne({ where: { username } })
+    const user = await userRepository.findOne(
+      { username },
+      { relations: ['roles'] }
+    )
 
     if (!user) return response.status(401).json({ error: 'User is not exist!' })
 

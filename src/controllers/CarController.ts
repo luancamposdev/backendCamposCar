@@ -42,7 +42,7 @@ class CarController {
   async index(request: Request, response: Response) {
     const carRepository = getCustomRepository(CarRepository)
 
-    const cars = await carRepository.find()
+    const cars = await carRepository.find({ order: { price: 'DESC' } })
 
     return response.json(cars)
   }
