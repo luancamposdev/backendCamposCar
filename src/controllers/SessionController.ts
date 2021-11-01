@@ -6,25 +6,23 @@ import { sign } from 'jsonwebtoken'
 
 class SessionController {
   async create(request: Request, response: Response) {
-    const { username, password } = request.body
+    const { email, password } = request.body
 
     const userRepository = getCustomRepository(UserRepository)
 
     const user = await userRepository.findOne(
-      { username },
+      { email },
       { relations: ['roles'] }
     )
 
     if (!user) {
-      return response.status(400).json({ error: 'User not found!' })
+      return response.status(400).json({ error: 'Usuário Não Encontrado!' })
     }
 
     const matchPassword = await compare(password, user.password)
 
     if (!matchPassword) {
-      return response
-        .status(400)
-        .json({ error: 'Incorrect password or username' })
+      return response.status(400).json({ error: 'Email ou senha inconrretos' })
     }
 
     const roles = user.roles.map((role) => role.name)
