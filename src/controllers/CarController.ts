@@ -67,13 +67,16 @@ class CarController {
 
     if (!carExist)
       return response.status(400).json({ message: 'Car note found!' })
+    console.log(filename)
+
+    const avatarNew = filename === undefined ? carExist.avatar : avatar
 
     const car = await carRepository.update(id, {
       name,
       brand,
       model,
       price,
-      avatar,
+      avatar: avatarNew,
     })
 
     if (car.affected) return response.json({ massage: 'Updated car.' })
