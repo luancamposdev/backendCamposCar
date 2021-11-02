@@ -3,8 +3,6 @@ const multer = require('multer')
 
 import UserController from './controllers/UserController'
 import SessionController from './controllers/SessionController'
-import PermissionController from './controllers/PermissionController'
-import RoleController from './controllers/RoleController'
 import CarController from './controllers/CarController'
 
 import { is } from './middlewares/permission'
@@ -41,10 +39,6 @@ router.get('/cars/photos/:filename', photosCarController.show)
 // Session Route
 router.post('/sessions', SessionController.create)
 
-// Permission Route
-router.post('/permissions', PermissionController.create)
-
-// Role Route
-router.post('/roles', RoleController.create)
+// router.get('/seed', "")
 
 export { router }

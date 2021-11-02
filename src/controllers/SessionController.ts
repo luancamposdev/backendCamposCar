@@ -10,10 +10,7 @@ class SessionController {
 
     const userRepository = getCustomRepository(UserRepository)
 
-    const user = await userRepository.findOne(
-      { email },
-      { relations: ['roles'] }
-    )
+    const user = await userRepository.findOne({ email })
 
     if (!user) {
       return response.status(400).json({ error: 'Usuário Não Encontrado!' })
@@ -25,9 +22,7 @@ class SessionController {
       return response.status(400).json({ error: 'Email ou senha inconrretos' })
     }
 
-    const roles = user.roles.map((role) => role.name)
-
-    const token = sign({ roles }, '93eea6a2c12628b3a3b7618f6882c912', {
+    const token = sign({}, '93eea6a2c12628b3a3b7618f6882c912', {
       subject: user.id,
       expiresIn: '1d',
     })

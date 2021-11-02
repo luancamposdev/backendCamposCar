@@ -2,31 +2,26 @@ import { Request, Response } from 'express'
 import { getCustomRepository } from 'typeorm'
 import { hash } from 'bcryptjs'
 import UserRepository from '../repositories/UserRepository'
-import RoleRepository from '../repositories/RoleRepository'
 
 class UserController {
   async create(request: Request, response: Response) {
     const userRepository = getCustomRepository(UserRepository)
-    const roleRepository = getCustomRepository(RoleRepository)
 
-    const { name, username, email, password, roles } = request.body
+    const { name, username, email, password } = request.body
 
     const existUser = await userRepository.findOne({ username, email })
 
     if (existUser) {
-      return response.status(400).json({ message: 'User already exists!' })
+      return response.status(400).json({ message: 'Usuário ja existe!' })
     }
 
     const passwordHashed = await hash(password, 8)
-
-    const existsRoles = await roleRepository.findByIds(roles)
 
     const user = userRepository.create({
       name,
       username,
       email,
       password: passwordHashed,
-      roles: existsRoles,
     })
 
     await userRepository.save(user)
@@ -40,12 +35,10 @@ class UserController {
     const userRepository = getCustomRepository(UserRepository)
     const { username } = request.params
 
-    const user = await userRepository.findOne(
-      { username },
-      { relations: ['roles'] }
-    )
+    const user = await userRepository.findOne({ username })
 
-    if (!user) return response.status(401).json({ error: 'User is not exist!' })
+    if (!user)
+      return response.status(401).json({ error: 'Usuário não existe!' })
 
     return response.json(user)
   }
