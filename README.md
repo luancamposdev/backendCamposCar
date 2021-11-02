@@ -31,53 +31,35 @@ autenticação com JWT.
 - [Instalando o Docker Compose](https://docs.docker.com/compose/install/)
 
 ```bash
-    // Clonar repositório
-    $ git clone https://github.com/luancampos/backendCamposCar
 
-    // Acessar diretório
-    $ cd backendCamposCar
-```
-
-- **rode o comando abaixo para iniciar o postgres e pgadmin com o compose**
-
-```shell
-  sudo docker-compose.yaml up -d
-```
-
-- **Rode o comando abaixo e altere as suas credenciais no** ormconfig.json
-
-```shell
-  cp ormconfig.example.json ormconfig.json
 ```
 
 ## 👍🏻 Como baixar
 
 ```bash
+     // Clonar repositório
+    $ git clone https://github.com/luancampos/backendCamposCar
+
+    // Acessar diretório
+    $ cd backendCamposCar
+
     // Instalar dependências
     $ yarn
+
+    // Subir o Postgres
+    $ sudo docker-compose.yaml up -d
+
+    //Copiar as Crendeciais
+    $ cp ormconfig.example.json ormconfig.json
 
     // Rodar as migrations
     $ yarn typeorm migration:run
 
+    // Rodar os Seeds
+    $yarn seed:run
+
     // Iniciar projeto
     $ yarn dev
-```
-
-## **Exemplo para criar os usuários**<br />
-
-// User
-
-```json
-{
-  "name": "Admin",
-  "username": "admin",
-  "email": "admin@camposcar.com",
-  "password": "123456"
-}
-```
-
-```shell
-  cp ormconfig.example.json ormconfig.json
 ```
 
 ## ☑️ Funcionalidades
