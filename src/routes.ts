@@ -29,7 +29,7 @@ router.put(
   multer(multerConfig).single('avatar'),
   CarController.update
 )
-router.get('/cars/:id', CarController.show)
+router.get('/cars/:name', CarController.show)
 router.get('/cars', CarController.index)
 router.delete('/cars/:id', CarController.delete)
 

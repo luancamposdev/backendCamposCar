@@ -1,3 +1,4 @@
+import { compare } from 'bcryptjs'
 import { Request, Response } from 'express'
 import { getCustomRepository, useContainer } from 'typeorm'
 
@@ -30,9 +31,9 @@ class CarController {
 
   async show(request: Request, response: Response) {
     const carRepository = getCustomRepository(CarRepository)
-    const { id } = request.params
+    const { name } = request.params
 
-    const car = await carRepository.findOne({ where: { id } })
+    const car = await carRepository.findOne({ where: { name } })
 
     if (!car) return response.status(401).json({ error: 'Car is not exist!' })
 
