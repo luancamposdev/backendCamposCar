@@ -13,7 +13,8 @@ Esse projeto foi desenvolvido para a prova de teste.
 
 ## ✍🏻 Tecnologias
 
-Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e Postgres, foi criado relacionamento `Many to Many`, foram criados `Roles e Permissions` e vinculei ao user e criei um `middleware` de validação das rotas, de acordo com as permissões.
+Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, ORM `TypeORM` e Postgres, foi criado
+autenticação com JWT.
 
 ## 🗂 Material de apoio
 
@@ -28,6 +29,14 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
 
 - [Instalando o Docker](https://docs.docker.com/get-docker/)
 - [Instalando o Docker Compose](https://docs.docker.com/compose/install/)
+
+```bash
+    // Clonar repositório
+    $ git clone https://github.com/luancampos/backendCamposCar
+
+    // Acessar diretório
+    $ cd backendCamposCar
+```
 
 - **rode o comando abaixo para iniciar o postgres e pgadmin com o compose**
 
@@ -44,13 +53,6 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
 ## 👍🏻 Como baixar
 
 ```bash
-
-    // Clonar repositório
-    $ git clone https://github.com/luancampos/backendCamposCar
-
-    // Acessar diretório
-    $ cd backendCamposCar
-
     // Instalar dependências
     $ yarn
 
@@ -61,39 +63,18 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
     $ yarn dev
 ```
 
-**Exemplo para criar os roles, permissions e os usuários com seus devidos roles**<br />
----
-  // Permission
-  ```json
-    {
-	    "name": "view_car",
-	    "description": "view Cars in the Catalog"
-    }
-  ```
-  // Roles
-  ```json
-    {
-      "name": "ROLE_USER",
-      "description": "USER",
-      "permissions": [
-        "e279e447-9aa8-479f-9148-875cab3b94f6"
-      ]
-    }
-  ```
-  
-  // User
-  ```json
-    {
-      "name": "Pedro Reis",
-      "username": "pedro",
-      "email": "pedroreis@gmail.com",
-      "password": "123456",
-      "roles": [
-        "f5c540a6-7778-4e5f-ac7f-9837d4f4a614"
-      ]
-    }
-  ```
-  
+## **Exemplo para criar os usuários**<br />
+
+// User
+
+```json
+{
+  "name": "Admin",
+  "username": "admin",
+  "email": "admin@camposcar.com",
+  "password": "123456"
+}
+```
 
 ```shell
   cp ormconfig.example.json ormconfig.json
@@ -103,10 +84,6 @@ Durante o desenvolvimento, foi utilizando o NodeJS v16.13.0, o ORM `TypeORM` e P
 
 - [x] CRUD de Users <br/>
 - [x] Autenticacao de Users<br/>
-- [x] Cadastro de Permissões<br/>
-- [x] Cadastro de Roles<br/>
-- [x] Relacionamento User_Roles<br/>
-- [x] Relacionamento Permission_Roles<br/>
 - [x] CRUD de Carros<br/>
 - [x] Upload de imagens<br />
 
