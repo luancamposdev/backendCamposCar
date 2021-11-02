@@ -21,19 +21,17 @@ router.put('/users/:id', auth, UserController.update)
 // Car Route
 router.post(
   '/cars',
-  auth,
   multer(multerConfig).single('avatar'),
   CarController.create
 )
 router.put(
   '/cars/:id',
-  auth,
   multer(multerConfig).single('avatar'),
   CarController.update
 )
 router.get('/cars/:id', CarController.show)
 router.get('/cars', CarController.index)
-router.delete('/cars/:id', auth, CarController.delete)
+router.delete('/cars/:id', CarController.delete)
 
 // Photos Car Route
 router.get('/cars/photos/:filename', photosCarController.show)

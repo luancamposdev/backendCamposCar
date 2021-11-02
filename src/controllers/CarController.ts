@@ -22,7 +22,7 @@ class CarController {
     try {
       await carRepository.save(car)
     } catch (err) {
-      console.warn('Error saving to Database')
+      console.warn('Erro ao Salvar o Carro!')
     }
 
     return response.json(car)
